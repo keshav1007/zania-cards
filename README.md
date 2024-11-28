@@ -1,50 +1,22 @@
-# React + TypeScript + Vite
+# This application is created using  - React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Steps to run the application in local
+1. `git clone` this repo
+2. `cd into the repo`
+3. run `npm install`
+4. run `npm run dev`
+5. Open `http://localhost:5173/` in browser
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+# Difficulties faced while working on the application
+1. I initially created the react app using nextJS. But it seems `msw ` will not work properly with nextJS and hence I had to recreate the application using Vite
+2. Because of the above reason the application is not working in vercel deployment - https://zania-cards-ja63.vercel.app/ as you can see the error related to msw in the console
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+# Thought process while working on the application
+1. Used `react-sortablejs` for drag and drop feature as it is very light weight when compared to other libraries like `react-grid-layout` and `gridstack`
+2. I have built the application in a modular way. Most of the work are developed as components and hence it can be reused
+3. Created and Used custom hooks wherever needed
+4. Learnt about `msw` - this is new for me
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
